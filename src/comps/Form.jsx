@@ -59,7 +59,10 @@ const Form = () => {
             const answ = await fetch("/api/resend", {
                 method:"POST",
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ state, cart, total }),
+                body: JSON.stringify({ 
+                    formData: state, 
+                    cart, 
+                    total }),
             })
 
             const confirm = await answ.json();
