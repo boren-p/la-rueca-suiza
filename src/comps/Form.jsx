@@ -1,6 +1,7 @@
 import React, { useReducer, useState } from 'react';
 import { useCart } from '../context/CartContext';
 import Checkbox from '../assets/Checkbox';
+import { useNavigate } from 'react-router-dom';
 
 
 const inState = {
@@ -39,6 +40,7 @@ const Form = () => {
     const [ error, setError ] = useState(false);
     const { cart, total, advance, advanceValue, increaseAdvance, decreaseAdvance, removeFromCart } = useCart();
     const [ done, setDone ] = useState(false)
+    const nav = useNavigate();
 
     async function HandleSubmit (e){
         e.preventDefault();
@@ -71,7 +73,8 @@ const Form = () => {
                 setDone(true)
                 setTimeout(()=>{
                     window.location.reload();
-                }, 2000)
+                    nav("/")
+                }, 4000)
             }
         } catch (error) {
         } 
@@ -80,12 +83,12 @@ const Form = () => {
     }
     return (
         <div className='relative py-20 px-[10%] w-full'>
-            {done && <div className='fixed inset-0 z-50 w-screen h-screen bg-black/50 backdrop-blur-xs flex items-center justify-center'>
-                <div className='px-5 py-2 bg-green-600 text-white text-center text-2xl font-semibold'>
-                    <h2>PEDIDO CONFIRMADO CON EXITO</h2>
+            <div className='fixed inset-0 z-50 w-screen h-screen bg-black/50 backdrop-blur-xs flex items-center justify-center'>
+                <div className='p-5 bg-green-600 max-w-100 text-white text-center text-2xl '>
+                    <h2 className=' font-semibold'>PEDIDO CONFIRMADO CON EXITO</h2>
                     <p>Nuestros operarios se pondrán en contacto contigo para continuar con el proceso, ¡Gracias por preferirnos!</p>
                 </div>
-            </div>}
+            </div>
             <h1 className='font-semibold text-4xl my-10'>Finaliza tu pedido</h1>
             <div className='flex flex-col-reverse md:flex-row items-start justify-center w-full gap-10'>
                 <div className='w-full md:w-[50%] flex flex-col'>
