@@ -72,8 +72,8 @@ const Form = () => {
             if (confirm.ok) {
                 setDone(true)
                 setTimeout(()=>{
-                    window.location.reload();
                     nav("/")
+                    window.location.reload();
                 }, 4000)
             }
         } catch (error) {
