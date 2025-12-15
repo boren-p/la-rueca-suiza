@@ -12,9 +12,9 @@ export default async function handler(req, res) {
   try {
     // 📩 Correo para la empresa
     await resend.emails.send({
-      from: formData.email,
+      from: "onboarding@resend.dev",
       to: "borenkpardo@gmail.com",
-      subject: "NUEVO PEDIDO",
+      subject: "Nuevo pedido recibido",
       html: `
         <h2>Nuevo pedido</h2>
         <p><strong>Cliente:</strong> ${formData.name}</p>
@@ -30,7 +30,7 @@ export default async function handler(req, res) {
 
     // 📩 Correo para el cliente
     await resend.emails.send({
-      from: "borenkpardo@gmail.com",
+      from: "onboarding@resend.dev",
       to: formData.email,
       subject: "Confirmación de tu pedido",
       html: `
