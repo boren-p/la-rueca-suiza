@@ -19,6 +19,7 @@ export default async function handler(req, res) {
         <h2>Nuevo pedido</h2>
         <p><strong>Cliente:</strong> ${formData.name}</p>
         <p><strong>Email:</strong> ${formData.email}</p>
+        <p><strong>Tel:</strong> ${formData.phone}</p>
         <p><strong>Total:</strong> $${total}</p>
         <ul>
           ${cart.map(p => `
