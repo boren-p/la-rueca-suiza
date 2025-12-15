@@ -83,12 +83,12 @@ const Form = () => {
     }
     return (
         <div className='relative py-20 px-[10%] w-full'>
-            <div className='fixed inset-0 z-50 w-screen h-screen bg-black/50 backdrop-blur-xs flex items-center justify-center'>
+            {done && <div className='fixed inset-0 z-50 w-screen h-screen bg-black/50 backdrop-blur-xs flex items-center justify-center'>
                 <div className='p-5 bg-green-600 max-w-100 text-white text-center text-2xl '>
                     <h2 className=' font-semibold'>PEDIDO CONFIRMADO CON EXITO</h2>
                     <p>Nuestros operarios se pondrán en contacto contigo para continuar con el proceso, ¡Gracias por preferirnos!</p>
                 </div>
-            </div>
+            </div>}
             <h1 className='font-semibold text-4xl my-10'>Finaliza tu pedido</h1>
             <div className='flex flex-col-reverse md:flex-row items-start justify-center w-full gap-10'>
                 <div className='w-full md:w-[50%] flex flex-col'>
